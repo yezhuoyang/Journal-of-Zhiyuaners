@@ -1,0 +1,58 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: main.aux
+The style file: unsrt.bst
+Database file #1: essay/ref.bib
+Warning--empty author in 2
+Warning--empty publisher in 3
+Warning--empty year in 3
+Warning--empty author and editor in 4
+Warning--empty year in 4
+Warning--empty journal in 5
+Warning--empty year in 5
+Warning--empty publisher in 6
+Warning--empty year in 6
+Warning--empty publisher in 7
+Warning--empty year in 7
+You've used 7 entries,
+            1791 wiz_defined-function locations,
+            474 strings with 3997 characters,
+and the built_in function-call counts, 1130 in all, are:
+= -- 87
+> -- 22
+< -- 1
++ -- 12
+- -- 5
+* -- 79
+:= -- 162
+add.period$ -- 15
+call.type$ -- 7
+change.case$ -- 3
+chr.to.int$ -- 0
+cite$ -- 18
+duplicate$ -- 67
+empty$ -- 139
+format.name$ -- 5
+if$ -- 248
+int.to.chr$ -- 0
+int.to.str$ -- 7
+missing$ -- 10
+newline$ -- 32
+num.names$ -- 5
+pop$ -- 43
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 20
+stack$ -- 0
+substring$ -- 49
+swap$ -- 7
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 11
+while$ -- 8
+width$ -- 8
+write$ -- 58
+(There were 11 warnings)

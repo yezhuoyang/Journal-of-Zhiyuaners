@@ -1,0 +1,59 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: main.aux
+The style file: unsrt.bst
+Database file #1: essay/ref.bib
+Too many commas in name 1 of "苏中,李擎,李旷振,杨宝利" for entry 1
+while executing---line 944 of file unsrt.bst
+Warning--empty publisher in 1
+Warning--empty year in 1
+Warning--empty publisher in 2
+Warning--empty year in 2
+Warning--empty publisher in 3
+Warning--empty year in 3
+Warning--empty publisher in 4
+Warning--empty year in 4
+Warning--empty publisher in 5
+Warning--empty year in 5
+You've used 5 entries,
+            1791 wiz_defined-function locations,
+            457 strings with 3767 characters,
+and the built_in function-call counts, 735 in all, are:
+= -- 45
+> -- 20
+< -- 0
++ -- 10
+- -- 5
+* -- 42
+:= -- 109
+add.period$ -- 10
+call.type$ -- 5
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 15
+duplicate$ -- 50
+empty$ -- 96
+format.name$ -- 5
+if$ -- 161
+int.to.chr$ -- 0
+int.to.str$ -- 5
+missing$ -- 10
+newline$ -- 23
+num.names$ -- 5
+pop$ -- 45
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 10
+stack$ -- 0
+substring$ -- 0
+swap$ -- 5
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 10
+while$ -- 5
+width$ -- 6
+write$ -- 37
+(There was 1 error message)

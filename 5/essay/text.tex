@@ -1,0 +1,259 @@
+
+
+\begin{enumerate}
+\item 引入\\
+在微分几何\cite{1}中，人们常常给曲面的曲率加上一些条件，来探究曲面的特性。其中有一个十分经典的问题是常平均曲率曲面的问题。一般来说，给定欧氏空间中曲面的某些曲率条件以后，曲面形状不能被唯一确定。\\
+不过，对于某些十分特殊的曲率条件，曲面的形状就可以被唯一确定。例如，Hopf曾证明如果$\mathbb{R}^{3}$中二维正则单连通闭曲面的平均曲率为常数，则曲面为球面。大家可以参考任何一本微分几何的书来了解正则曲面、平均曲率的定义。\\
+Hopf对于这一结论的证明严重依赖于曲面的拓扑，必须要求闭曲面是单连通的，即同胚于球面，但实际上球面的这一条件可以去除，Alexandrov证明了如果$\mathbb{R}^{3}$中二维正则连通闭曲面的平均曲率为常数，则曲面为球面。后来Reilly用了完全不同的方法重新证明了Alexandrov 的结果，并且还将结论推广到了$\mathbb{R}^{n+1}$中的超曲面，即
+\begin{theorem}
+如果$\mathbb{R}^{n+1}$中的$n$维正则连通闭曲面$M$的平均曲率为常数，则$M$为球面，即到定点距离为定长的点集。
+\end{theorem}
+在本文中，我整理了Alexandrov的证明方法。必须承认对于这个问题，Alexandrov的证明方法实际上比Reilly的证明方法繁琐，之所以在这里选择展示前者的证明方法，主要是两点考虑：第一是Rielly的证明需要一些对于微分几何更深入的了解，不适合作为科普，而Alexandrov的证明方法本科生不需要太多微分几何的知识也可读懂；第二是Alexandrov 的证明方法逐渐演变成了偏微分方程理论中非常著名的“移动平面法”，为偏微分方程理论做出了重大贡献。\\
+学习过《偏微分方程》这门课程的同学会觉得本文很多部分似曾相识，确实本文很多内容都和大家熟悉的调和函数的理论十分相似，可以从本文中回顾一些偏微分方程的基本方法。
+
+
+
+
+\item 准备工作\\
+本文中平均曲率取为Weingarten映射$L$的迹，也就是主曲率之和（而非平均），即
+\begin{displaymath}
+H=tr(L)=\sum_{i=1}^{n}\kappa_{i}.
+\end{displaymath}
+$f:\Omega\rightarrow \mathbb{R}$是定义在$\Omega\in\mathbb{R}^{n}$上的一个函数，则映射
+\begin{displaymath}
+X:\Omega\rightarrow\mathbb{R}^{n+1}\quad X(x^{1},x^{2},\cdots,x^{n})=(x^{1},x^{2},\cdots,x^{n},f(x^{1},x^{2},\cdots,x^{n}))
+\end{displaymath}
+称为函数$f$的图像。\\
+可以证明任何一个曲面的一个局部充分小的曲面片总可以通过适当旋转，成为某个函数的图像。
+\begin{theorem}
+曲面$M$是函数$u$的图像，设曲面关于向上的单位法方向为$n$，则曲面的平均曲率为
+\begin{displaymath}
+H=div\frac{\nabla u}{\sqrt{1+|\nabla u|^{2}}}.
+\end{displaymath}
+\end{theorem}
+\begin{proof}
+曲面每一点的切平面由$X_{i}=\frac{\partial}{\partial x^{i}}=(0,\cdots,1,\cdots,0,u_{i})=(e_{i},u_{i})$张成，其中$e_{i}$代表$\mathbb{R}^{n}$中第$i$个单位向量，$u_{i}$ 为函数$u$关于$x^{i}$方向导数。则曲面的向上法方向为
+\begin{displaymath}
+n=\frac{(-\nabla u,1)}{\sqrt{1+|\nabla u|^{2}}}.
+\end{displaymath}
+于是，Weingarten映射满足
+\begin{eqnarray*}
+L(X_{i})&=&-n_{i}=\frac{\partial}{\partial x^{i}}\frac{(\nabla u,-1)}{\sqrt{1+|\nabla u|^{2}}}\\
+&=&\frac{(\nabla u_{i},0)}{\sqrt{1+|\nabla u|^{2}}}-\frac{(\nabla u,-1)\cdot (1+|\nabla u|^{2})_{i}}{2\sqrt{1+|\nabla u|^{2}}^{3}}\\
+&=&\frac{1}{\sqrt{1+|\nabla u|^{2}}}(\nabla u_{i},0)-\frac{\langle\nabla u,\nabla u_{i}\rangle}{\sqrt{1+|\nabla u|^{2}}^{3}}(\nabla u,-1)
+\end{eqnarray*}
+是曲面的切平面上的一个向量，从而
+\begin{eqnarray*}
+H=trL&=&\sum_{i=1}^{n}\frac{u_{ii}}{\sqrt{1+|\nabla u|^{2}}}-\sum_{i=1}^{n}\frac{\langle\nabla u,\nabla u_{i}\rangle}{\sqrt{1+|\nabla u|^{2}}^{3}}u_{i}\\
+&=&\sum_{i=1}^{n}\frac{u_{ii}}{\sqrt{1+|\nabla u|^{2}}}-\sum_{i,j=1}^{n}\frac{u_{j}u_{ji}}{\sqrt{1+|\nabla u|^{2}}^{3}}u_{i}\\
+&=&div\frac{\nabla u}{\sqrt{1+|\nabla u|^{2}}}.
+\end{eqnarray*}
+\end{proof}
+
+
+
+
+\item 球面的一个判定方法\\
+我们需要证明的Alexandrov定理的结论为曲面$M$是球面，众所周知，球面关于任何方向都是一个轴对称图形，那么我们自然会问能否使用轴对称这一特点来判定一个曲面是不是球面。在这一部分我们将对此给出一个肯定的回答，进而一旦我们可以证明如果连通闭曲面$M$关于任何方向都是轴对称图形，就自然证明了Alexandrov定理。
+\begin{lemma}
+$\Omega$是平面上的一个非空紧致集，则对任意角度$\theta\in S^{1}$，$\Omega$至多有一条垂直于$\theta$的对称轴。
+\end{lemma}
+\begin{proof}
+假设$\Omega$有不同的垂直于$\theta$的对称轴$l_{1},l_{2}$，则我们注意到对任意$p\in\Omega$，$p$关于$l_{1},l_{2}$的对称点也在$\Omega$中，所以我们将$p$先关于$l_{1}$做镜面反射，再关于$l_{2}$做镜面反射。这样的映射作用相当于一个平移变换，并将$p\in\Omega$映射到$\Omega$中，所以说$\Omega$经过上述的平移变换后依然落在$\Omega$中。\\
+由于$\Omega$非空且紧致，我们知道它是有界的，然而我们却可以重复上述的平移变换足够多次，将$\Omega$平移到充分远处却保持平移后的像还在$\Omega$中，这与$\Omega$的有界性矛盾。
+\end{proof}
+\begin{theorem}
+$\Omega$是平面上的一个非空紧致集，假设对任意角度$\theta\in S^{1}$，$\Omega$均存在（唯一）一条垂直于$\theta$的对称轴$l_{\theta}$，则平面上存在一定点，使这些对称轴$l_{\theta}$ 都经过这一定点。
+\end{theorem}
+\begin{proof}
+我们用反证法，假如上述结论非真，则存在三个互不平行的角度，使得三条相应的对称轴围成一个三角形，我们可以不妨假设三角形的三个顶点$A,O,B$满足$\angle AOB \leq \frac{\pi}{3}$。进一步，我们还可以通过适当平移、伸缩、反射、旋转，将点$A,O,B$移动到如下位置：\\
+(1)$O$为坐标原点$(0,0)$，\\
+(2)$A=(1,a),B=(1,b)$且$a<b$。\\
+这样的话，直线$AB$，直线$OA$，直线$OB$都是集合$\Omega$的对称轴。
+假设$p\in\Omega$，且$p$在直线$AB$右侧，由于直线$AB$是$\Omega$的对称轴，这样的$p$存在。\\
+令$p_{i}=p$，我们归纳地构造一个全部落在直线$AB$右侧的$\Omega$中的点列$\{p_{i}:i=0,1,2,\cdots\}$。\\
+假如$p_{i}$已经定义，我们将$p_{i}$先关于直线$OA$做反射，再关于直线$OB$做反射。这样的“两次反射”实际效果是关于原点逆时针旋转$2\angle AOB \leq \frac{2\pi}{3}$。 由于$\frac{2\pi}{3}<\pi$，经过有限次上述的“两次反射”可以将$p_{i}$旋转到左半平面的点$\widetilde{p}_{i}$。这时候我们关于直线$AB$做一次反射，并定义$p_{i}$经过这一系列变换后的点为$p_{i+1}$。显然$p_{i+1}$在直线$AB$右侧。\\
+由于$p_{i+1}$是$p_{i}$通过有限次关于对称轴的反射所形成的，所以只要$p_{i}\in\Omega$，就有$p_{i+1}\in\Omega$。于是点列$p_{i}$定义完毕。\\
+我们注意到$|p_{i}|^{2}=|\widetilde{p}_{i}|^{2}$，如果我们假设$\widetilde{p}_{i}=(-x,y),x>0$，则根据$p_{i+1}$的定义有$p_{i+1}=(2+x,y)$。由此知
+\begin{eqnarray*}
+|p_{i+1}|^{2}-|p_{i}|^{2}&=&|p_{i+1}|^{2}-|\widetilde{p}_{i}|^{2}\\
+&=&(2+x)^{2}+y^{2}-(-x)^{2}-y^{2}\\
+&\geq& 4.
+\end{eqnarray*}
+也就是说点列$p_{i}$到坐标原点的距离趋于无穷，这与$\Omega$的紧致性矛盾。
+\end{proof}
+\begin{theorem}
+$\Omega$是$\mathbb{R}^{n+1}$上的一个非空紧致集，假设对任意角度$\theta\in S^{n}$，$\Omega$均存在（唯一）一条垂直于$\theta$的超平面$l_{\theta}$作为对称轴，则平面上存在唯一的定点，使这些平面$l_{\theta}$ 都经过这一定点。
+\end{theorem}
+\begin{proof}
+定点的唯一性是显然的，主要的难点在于存在性。对于$n=1$的情况，上一个定理已经给出了证明，下面我们用数学归纳法，即假设如果$\mathbb{R}^{n}$上的一个非空紧致集在任何方向上都是轴对称图形，则相应的超平面经过定点。\\
+任取两个垂直的方向$\alpha, \beta\in S^{n}$，则$l_{\beta}$将$l_{\alpha}$反射到自身，故$l_{\alpha}\bigcap\Omega$关于$l_{\beta}\bigcap l_{\alpha}$轴对称。\\
+由归纳假设知，在$\alpha$给定的情况下，对任何与$\alpha$垂直的方向$\beta$，$l_{\beta}$都经过$l_{\alpha}\bigcap\Omega$上的某一定点，设这样的定点为$O_{\alpha}$。\\
+我们注意到，只要$\alpha\bot\beta$，根据定义就有$O_{\alpha},O_{\beta}\in l_{\beta}\bigcap l_{\alpha}$，所以$O_{\alpha}-O_{\beta}\bot\alpha,\beta$ 。\\
+我们断言$O_{\alpha}=O_{\beta}$，这是因为任意的同时垂直于$\alpha$和$\beta$的另一方向$\gamma$，我们有$O_{\alpha}-O_{\beta}\in l_{\gamma}$，故$O_{\alpha}-O_{\beta}\bot\gamma$，我们看到$O_{\alpha}-O_{\beta}$这个向量垂直于$\alpha,\beta$以及任何与$\alpha,\beta$垂直的向量$\gamma$，唯一的解释就是$O_{\alpha}-O_{\beta}=0$。\\
+至于任意两个向量$\alpha, \beta\in S^{n}$，总存在一个与$\alpha,\beta$垂直的向量$\gamma$，于是就有$O_{\alpha}=O_{\gamma}=O_{\beta}$。故定理得证。
+\end{proof}
+\begin{theorem}
+如果连通的正则$n$维闭曲面$M\in\mathbb{R}^{n+1}$关于任何方向轴对称，则曲面$M$为球面，即到定点距离为定长的点集。
+\end{theorem}
+\begin{proof}
+根据之前定理所述，存在定点$O\in\mathbb{R}^{n+1}$，使得任何对称轴都经过定点$O$，我们将曲面适当平移，使得定点$O$平移到坐标原点。假设$A\in M$且到定点$O$的距离为$|A|=r$，则对任何其他到定点$O$ 的距离为$r$ 的点$B$，我们注意到由于$l_{\frac{A-B}{|A-B|}}$经过定点$O$，所以$l_{\frac{A-B}{|A-B|}}$将$A$反射成$B$，故$B\in M$。\\
+所以说，$M$是若干同心球面的并集。另外由于$M$是正则连通闭曲面，故它只能是球面。
+\end{proof}
+
+
+
+
+
+
+\item 移动平面\\
+根据上一部分的结果，我们只要证明常平均曲率曲面$M$满足任何方向的轴对称性，即可证明$M$为球面。我们不妨只去证明$M$关于$x^{n+1}$轴方向轴对称，即证明存在垂直于$x^{n+1}$ 轴的平面，使得$M$关于这个平面轴对称。\\
+由曲面$M$的紧致性，曲面$M$上各点的$x^{n+1}$坐标存在最值$H_{max},H_{min}$。我们将曲面上$x^{n+1}$坐标不小于$H_{max}-h$的点集记为$U_{h}$，将$x^{n+1}$坐标不大于$H_{max}-h$ 的点集记为$L_{h}$，并令$Z_{h}=U_{h}\bigcap L_{h}$。另外假设$U_{h}$关于平面$x^{n+1}=h$反射后的点集记为$U^{\ast}_{h}$。\\
+首先无论如何都有$Z_{h}\subseteq U^{\ast}_{h}\bigcap L_{h}$。一个自然的问题就是对于什么样的$h$有$Z_{h}=U^{\ast}_{h}\bigcap L_{h}$？对此我们有下面的定理：
+\begin{theorem}
+(1)存在$\delta>0$使得当$0\leq h\leq\delta$时有$Z_{h}=U^{\ast}_{h}\bigcap L_{h}$，\\
+(2)存在$h\in[0,H_{max}-H_{min}]$使得$Z_{h}\neq U^{\ast}_{h}\bigcap L_{h}$。
+\end{theorem}
+\begin{proof}
+(1)如果$\delta$不存在，则我们可以找到点列$p_{k}\in U_{\frac{1}{k}}\setminus Z_{\frac{1}{k}}$使得$p_{k}$关于平面$x^{n+1}=H_{max}-\frac{1}{k}$的对称点$q_{k}$也在曲面$M$上。根据曲面的紧致性知，存在$p_{k}$的子列$p_{k_{i}}$收敛到曲面上的某点$p_{\infty}$。\\
+当然，由于$p_{k}$的$x^{n+1}$方向坐标不小于$H_{max}-\frac{1}{k}$，我们知道$p_{\infty}$的$x^{n+1}$方向坐标就是$H_{max}$，所以说$p_{\infty}$处的切平面$T_{p_{\infty}}M$与$x^{n+1}$轴垂直。\\
+根据正则曲面的定义知，存在$\varepsilon>0$使得对曲面上任何到$p_{\infty}$距离小于$\varepsilon$的点$p$，以及任何$t\in(0,\varepsilon)$总有$p-t\cdot e_{n+1}\notin M$。而点列$p_{k_{i}}$及其对应的反射点$q_{k_{i}}$的距离则不超过$\frac{2}{k_{i}}$，这与正则曲面的定义矛盾。\\
+(2)假设$p\in M$的$x^{n+1}$方向坐标为$H_{max}$，则如前所述有$p$处的切平面$T_{p}M$与$x^{n+1}$轴垂直，所以可以过$p$做一条平行于$x^{n+1}$ 轴的直线，这条直线一定与曲面$M$交于另一点$q$（这里$q$的存在性需要比较深入的拓扑知识，但因为较为直观，故此处作为默认的事实不做证明），则$|p-q|\leq H_{max}-H_{min}$，故我们知道对于$h=\frac{|p-q|}{2}\in[0,H_{max}-H_{min}]$ 有$Z_{h}\bigcup\{q\}\subseteq U^{\ast}_{h}\bigcap L_{h}$。
+\end{proof}
+\begin{definition}
+我们定义
+\begin{displaymath}
+h_{0}=\sup\{h>0:Z_{t}=U^{\ast}_{t}\bigcap L_{t},\forall 0<t<h\},
+\end{displaymath}
+则定义平面$x^{n+1}=H_{max}-h_{0}$为曲面$M$的$x^{n+1}$轴方向的反射平面。
+\end{definition}
+当然，方便起见，我们可以适当平移曲面$M$使得曲面$M$的$x^{n+1}$轴方向的反射平面恰好为平面$x^{n+1}=0$，此时有$h_{0}=H_{max}$。相应地可以简记$M$上$x^{n+1}$方向坐标非负的点为$U$,$x^{n+1}$方向坐标非正的点为$L$，而$Z=U\bigcap L$，$U$关于平面$x^{n+1}=0$的反射像为$U^{\ast}$。
+\begin{lemma}
+假设$\Omega\in\mathbb{R}^{n}$是$U$在平面$x^{n+1}=0$上的投影，则存在定义在$\Omega$上的函数$f$使得$U$是函数$f$的图像。进一步地，$U^{\ast}$可以看作$-f$的图像。
+\end{lemma}
+\begin{proof}
+我们只需要排除$U$中两点$p_{1},p_{2}$在$\Omega$上投影相同的可能即可。假如$p_{1},p_{2}$存在，且其$x^{n+1}$方向坐标为$p^{n+1}_{1}>p^{n+1}_{2}$，则我们注意到平面$x^{n+1}=\frac{p^{n+1}_{1}+p^{n+1}_{2}}{2}$将$p_{1}$反射到$p_{2}$，于是对于
+\begin{displaymath}
+t=H_{max}-\frac{p^{n+1}_{1}+p^{n+1}_{2}}{2}\in(0,H_{max})=(0,h_{0})
+\end{displaymath}
+有$Z_{t}\bigcup\{p_{2}\}\subseteq U^{\ast}_{t}\bigcap L_{t}$。这与$h_{0}$的定义矛盾。
+\end{proof}
+\begin{theorem}
+如果$q\in L$在平面$x^{n+1}=0$的投影$x_{q}$落在$\Omega$内，则$q$的$x^{n+1}$方向坐标至多为$-f(x_{q})$。
+\end{theorem}
+\begin{proof}
+否则假设$q$的坐标为$(x_{q},z_{q})$，其中$z_{q}>-f(x_{q})$。则我们知道平面$x^{n+1}=\frac{f(x_{q})+z_{q}}{2}>0$将点$(x_{q},f(x_{q}))$反射到$q$，同样地，这与$h_{0}$的最小性矛盾。
+\end{proof}
+\begin{theorem}
+设$\omega=\{x\in\Omega: (x,-f(x))\in L\}$，再假设$\Omega=\bigcup\Omega_{\lambda}$，其中$\Omega_{\lambda}$是$\Omega$的各连通分支。则有：\\
+(1)$\omega\bigcap\Omega_{\lambda}\neq\emptyset$，\\
+(2)$\omega\bigcap\Omega_{\lambda}$是平面$x^{n+1}=0$上的闭集。
+\end{theorem}
+\begin{proof}
+(1)各连通分支的边界上的点$x\in\partial\Omega_{\lambda}$均满足$f(x)=0$，故$(x,-f(x))=(x,0)\in L$，即$x\in\omega$。\\
+(2)只要分别证明$\omega$和$\Omega_{\lambda}$是闭集即可。对于前者，$\omega$的定义属于闭条件，故$\omega$为闭集。对于后者，$U$的定义为闭条件，故$U$是闭集，由于$U$是$\Omega$上定义的连续函数$f$的图像，故$\Omega$也是平面$x^{n+1}=0$上的闭集，于是它的连通分支也都是平面上闭集。
+\end{proof}
+现在，大家应该不难想到，只要能够证明$\omega$在$\Omega$中是开集，即可证明$\omega=\Omega$，此时我们有$U^{\ast}\subseteq L$。再根据$M$是正则连通闭曲面知$U^{\ast}=L$，所以在$x^{n+1}$轴方向，$M$关于平面$x^{n+1}=0$轴对称，这样的话就完成了证明。\\
+所以最后我们将证明$\omega$在$\Omega$中是开集。
+
+
+
+\item 偏微分方程的介入\\
+我们假设$\omega$在$\Omega$中不是开集，那么存在$x\in\omega$以及$x_{i}\in\Omega\setminus\omega$，满足$x_{i}\rightarrow x$。定理10保证了$U^{\ast}$在$L$上方，故在$(x,-f(x))$处，$U^{\ast}$和$L$切平面必须重合。\\
+于是，我们可以对$M$做平移与旋转，使得在新的坐标系$(y^{1},\cdots,y^{n},y^{n+1})$下，$(x,-f(x))$位于坐标原点，该点曲面的切平面为平面$y^{n+1}=0$，且在原点附近，$U^{\ast}$在$L$上方。\\
+于是我们可以在远点附近将$U^{\ast}$与$L$写成函数的图像，即存在$\mathbb{R}^{n}$中原点的开领域$D$以及函数$u,v$使得对于$y\in D$，图像$(y,u(y)),(y,v(y))$即为$U^{\ast}$与$L$，根据假设，我们有\\
+(1)$u\geq v$并且存在$y_{i}\in D, y_{i}\rightarrow O$满足$u(y_{i})>v(y_{i})$，\\
+(2)在原点$O$处有$\nabla u=\nabla v=0$。\\
+此时我们需要注意一件事情：由于$M$的平均曲率为常数，故$U^{\ast}$与$L$有相等的常平均曲率$\overline{H}$（事实上，我们还需要排除两者平均曲率为相反数的情况，但是由于$h_{0}$的最小性知$U^{\ast}$与$L$的平均曲率的“弯曲”方向相同，故两者平均曲率相等），而且也不难证明上法向的平均曲率$\overline{H}>0$，而平均曲率方程
+\begin{displaymath}
+H=div\frac{\nabla u}{\sqrt{1+|\nabla u|^{2}}}.
+\end{displaymath}
+是一个非线性的椭圆方程，故很有可能可以通过椭圆方程的各类比较定理得出$u=v$，进而推出矛盾。\\
+当然，由于平均曲率方程是一个非线性椭圆方程，故我们不可能照搬大家熟悉的拉普拉斯方程的方法，将$u,v$相减做最大值原理，而是需要适当修改一下证明方法。
+
+
+
+
+\item 常平均曲率方程的比较定理与Hopf型定理\\
+我们先来证明一个平均曲率方程的比较定理：
+\begin{theorem}
+$D_{0}\in\mathbb{R}^{n}$为一有界开区域，$\varphi,\psi\in C^{\infty}(D_{0})\bigcap C(\overline{D_{0}})$为两个函数。设它们的平均曲率分别为$H_{\varphi},H_{\psi}$，如果\\
+(1)在$\partial D_{0}$上有$\varphi\geq\psi$，\\
+(2)$H_{\varphi}<H_{\psi}$，\\
+则$\forall y\in D_{0}, \varphi(y)\geq\psi(y)$。
+\end{theorem}
+\begin{proof}
+假设结论为假，则令$b=\max\{\psi(y)-\varphi(y):y\in\overline{D_{0}}\}$，首先由于$\overline{D_{0}}$是紧致集，$b$是存在的，其次根据反证法的假设知$b>0$。\\
+于是我们有$\varphi(y)+b\geq\psi(y)$，且等号可以在$D_{0}$内某点$y_{0}$取到。另外根据平均曲率公式知$\varphi+b$的平均曲率
+\begin{displaymath}
+H_{\varphi+b}=H_{\varphi}<H_{\psi}.
+\end{displaymath}
+然而我们注意到在$y_{0}$处，由于$\varphi(y)+b\geq\psi(y)$且$\varphi(y_{0})+b=\psi(y_{0})$，故\\
+(1)$\nabla\varphi(y_{0})=\nabla\psi(y_{0})$，\\
+(2)$\nabla^{2}(\varphi(y_{0})-\psi(y_{0}))\geq 0$。\\
+然而
+\begin{eqnarray*}
+H&=&div\frac{\nabla u}{\sqrt{1+|\nabla u|^{2}}}\\
+&=&\frac{(1+|\nabla u|^{2})\Delta u-\nabla^{2}u(\nabla u,\nabla u)}{(1+|\nabla u|^{2})^{\frac{3}{2}}},
+\end{eqnarray*}
+从中可以看出$H_{\varphi}\geq H_{\psi}$，与假设矛盾。
+\end{proof}
+\begin{lemma}
+函数$g_{0}\in C^{\infty}(\overline{B_{1}(O)}\setminus\{O\})$定义为$g_{0}(x)=|x|^{-n}$，则$g_{0}$满足：\\
+(1)$\forall v\in \mathbb{R}^{n}, |v|^{2}\Delta g_{0}-\nabla^{2}g_{0}(v,v)\geq -\frac{n-1}{2}|v|^{2}\Delta g_{0}$，\\
+(2)$|\nabla g_{0}|= \frac{1}{2}\Delta g_{0}\geq n$。
+\end{lemma}
+\begin{proof}
+(2)为显然，故只证明(1)。由对称性，我们不妨计算在$(r,0,\cdots,0)$处$g_{0}$的Hessian矩阵，不难验证$(r,0,\cdots,0)$处$g_{0}$的Hessian矩阵为
+\begin{displaymath}
+diag\{n(n+1)\cdot r^{-n-2},-n\cdot r^{-n-2},\cdots,-n\cdot r^{-n-2}\},
+\end{displaymath}
+故$\Delta g_{0}=2n\cdot r^{-n-2}$，且$\nabla^{2}g_{0}(v,v)\leq n(n+1)\cdot r^{-n-2}|v|^{2}$。
+\end{proof}
+\begin{lemma}
+$g$为某一函数，$u,v$为上一部分所定义的两个函数，设函数族$v+tg$的平均曲率为$H_{v+tg}$，则\\
+$\frac{d}{dt}|_{t=0}H_{v+tg}$
+\begin{displaymath}
+=\frac{(1+|\nabla v|^{2})\Delta g+2\Delta v\langle\nabla v,\nabla g\rangle-\nabla^{2}g(\nabla v,\nabla v)-2\nabla^{2}v(\nabla v,\nabla g)}{(1+|\nabla v|^{2})^{\frac{3}{2}}}-\frac{3\overline{H}}{1+|\nabla v|^{2}}\langle\nabla v,\nabla g\rangle.
+\end{displaymath}
+\end{lemma}
+\begin{proof}
+直接计算即可。
+\end{proof}
+由于$y_{i}\rightarrow O$，我们可以不妨假设$y_{i}$到$O$的距离不超过1，我们设$D_{i}=B_{|y_{i}|}(y_{i})$，以及定义$g_{i}:\overline{D_{i}}\setminus\{y_{i}\}\in\mathbb{R}$为$g_{i}(y)=g_{0}(y-y_{i})-g_{0}(|y_{i}|)$，则我们有
+\begin{theorem}
+\begin{displaymath}
+\frac{d}{dt}|_{t=0}H_{v+tg_{i}}\geq\frac{1-2n\{|\nabla v|+|\Delta v|+|\nabla^{2}v|+\overline{H}\sqrt{1+|\nabla v|^{2}}\}|\nabla v|}{(1+|\nabla v|^{2})^{\frac{3}{2}}}\Delta g_{i}.
+\end{displaymath}
+\end{theorem}
+\begin{proof}
+首先由Cauchy不等式知$\frac{d}{dt}|_{t=0}H_{v+tg_{i}}$
+\begin{displaymath}
+\geq\frac{(1+|\nabla v|^{2})\Delta g_{i}-\nabla^{2}g_{i}(\nabla v,\nabla v)-\{2|\Delta v||\nabla v|+2|\nabla^{2}v||\nabla v|+3\overline{H}|\nabla v|\sqrt{1+|\nabla v|^{2}}\}|\nabla g_{i}|}{(1+|\nabla v|^{2})^{\frac{3}{2}}}.
+\end{displaymath}
+由于$|v|^{2}\Delta g_{0}-\nabla^{2}g_{0}(v,v)\geq -\frac{n-1}{2}|v|^{2}\Delta g_{0}$以及$|\nabla g_{0}|\leq \frac{n}{2}\Delta g_{0}$，我们随即得到：
+\begin{displaymath}
+\frac{d}{dt}|_{t=0}H_{v+tg_{i}}\geq\frac{(1-\frac{n-1}{2}|\nabla v|^{2})\Delta g_{i}-\frac{n}{2}\{2|\Delta v|+2|\nabla^{2}v|+3\overline{H}\sqrt{1+|\nabla v|^{2}}\}|\nabla v|\Delta g_{i}}{(1+|\nabla v|^{2})^{\frac{3}{2}}}.
+\end{displaymath}
+稍加整理并且进一步放缩即可得到所需不等式。
+\end{proof}
+注意到在$O$的附近，$\{|\nabla v|+|\Delta v|+|\nabla^{2}v|+\overline{H}\sqrt{1+|\nabla v|^{2}}\}$有一个一致上界$C$，我们可以找到$j$使得对任何$y\in D$，只要有$|y|\leq 2|y_{j}|$，就有$|\nabla v|\leq \frac{1}{4n\cdot C}$。此时在$\overline{D_{j}}$中有
+\begin{displaymath}
+\frac{d}{dt}|_{t=0}H_{v+tg_{j}}\geq\frac{1}{2}\Delta g_{j}\geq n.
+\end{displaymath}
+从而存在$T>0$使得在$\overline{D_{j}}$中有$H_{v+tg_{j}}>H_{v},\forall t\in(0,T)$。\\
+现在，我们离证明Alexandrov定理只差最后一步：
+\begin{theorem}
+如果$\omega$在$\Omega$中不是开集，则$\nabla u(O)=\nabla v(O)=0$这一条件不成立，即当我们假设$\nabla v(O)=0$时必须有$\nabla u(O)\neq 0$，进而我们可以说明$\omega$在$\Omega$中必须是开集。
+\end{theorem}
+\begin{proof}
+我们注意到，由于之前选定的$y_{j}$满足$u(y_{j})>v(y_{j})$，故可以找到$\varepsilon\in(0,|y_{j}|)$使得
+\begin{displaymath}
+\min_{y\in\partial B_{\varepsilon}(y_{j})}(u(y)-v(y))\geq\frac{u(y_{j})-v(y_{j})}{2}.
+\end{displaymath}
+于是我们可以找到$t\in(0,T)$，使得在$\partial B_{|y_{j}|(y_{j})}\bigcup\partial B_{\varepsilon}(y_{j})$上有$v+tg_{j}\leq u$。\\
+我们应用平均曲率方程的比较定理，其中$D_{0}=B_{|y_{j}|}(y_{j})\setminus \overline{B_{\varepsilon}(y_{j})}$，$\varphi=u, \psi=v+tg_{j}$。
+由于$H_{u}=H_{v}<H_{v+tg_{j}}$，故比较定理的所有条件均满足，我们得到在$\overline{D_{0}}=\overline{B_{|y_{j}|}(y_{j})}\setminus B_{\varepsilon}(y_{j})$上都有$v+tg_{j}\leq u$。\\
+然而在$O\in\overline{D_{0}}$处，同时有$\nabla v(O)=0, u(O)=v(O)，u\geq v+tg_{j}$，而由于$\partial_{\nu}g_{j}(O)>0$（其中$\nu$为$\partial B_{|y_{j}|}(y_{j})$ 在$O$处的内法向），知$\partial_{\nu}u(O)>0$，从而结论得证。
+\end{proof}
+\end{enumerate}

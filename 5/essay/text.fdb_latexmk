@@ -1,0 +1,14 @@
+# Fdb version 3
+["xdvipdfmx"] 1548315472 "text.xdv" "text.pdf" "text" 1548315472
+  "text.xdv" 1548315472 5492 8905e20ee95437974e4f907e4161609e "xelatex"
+  (generated)
+  "text.pdf"
+["xelatex"] 1548315471 "text.tex" "text.xdv" "text" 1548315472
+  "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
+  "/usr/local/texlive/2018/texmf-var/web2c/xetex/xelatex.fmt" 1543584729 3731948 c8cedaf435e57e3421ceaa516e1c1452 ""
+  "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
+  "text.aux" 1547732323 8 a94a2480d3289e625eea47cd1b285758 ""
+  "text.tex" 1548315471 23328 dc0b07a10228c6338fdc4a6112877ebd ""
+  (generated)
+  "text.log"
+  "text.xdv"

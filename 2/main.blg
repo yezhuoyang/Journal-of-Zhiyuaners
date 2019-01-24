@@ -1,0 +1,63 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: main.aux
+The style file: unsrt.bst
+Database file #1: essay/ref.bib
+Too many commas in name 1 of "Chen, L., Liu, R., Liu, Z.-P., Li, M., & Aihara, K." for entry 1
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Chen, L., Liu, R., Liu, Z.-P., Li, M., & Aihara, K." for entry 1
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Chen, L., Liu, R., Liu, Z.-P., Li, M., & Aihara, K." for entry 1
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Chen, L., Liu, R., Liu, Z.-P., Li, M., & Aihara, K." for entry 1
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Chen, L., Liu, R., Liu, Z.-P., Li, M., & Aihara, K." for entry 1
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Chen, L., Liu, R., Liu, Z.-P., Li, M., & Aihara, K." for entry 1
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Chen, L., Liu, R., Liu, Z.-P., Li, M., & Aihara, K." for entry 1
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Li F,Long T, Lu Y,et al." for entry 2
+while executing---line 944 of file unsrt.bst
+You've used 2 entries,
+            1791 wiz_defined-function locations,
+            453 strings with 3829 characters,
+and the built_in function-call counts, 278 in all, are:
+= -- 22
+> -- 8
+< -- 0
++ -- 4
+- -- 2
+* -- 8
+:= -- 57
+add.period$ -- 6
+call.type$ -- 2
+change.case$ -- 2
+chr.to.int$ -- 0
+cite$ -- 2
+duplicate$ -- 16
+empty$ -- 29
+format.name$ -- 2
+if$ -- 57
+int.to.chr$ -- 0
+int.to.str$ -- 2
+missing$ -- 2
+newline$ -- 13
+num.names$ -- 2
+pop$ -- 6
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 6
+stack$ -- 0
+substring$ -- 0
+swap$ -- 2
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 2
+width$ -- 3
+write$ -- 22
+(There were 8 error messages)
